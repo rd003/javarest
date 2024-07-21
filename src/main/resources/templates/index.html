@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Apis</title>
+  </head>
+  <body>
+    <h1 th:text="${title}">some value</h1>
+    <p>Get All: api/todos</p>
+    <p>Get By Id: api/todos/{id}</p>
+    <p>Post: api/todos body: { "title": string, }</p>
+    <p>
+      Put: api/todos/{id} body: { "id":long "title": string, "completed": boolen
+      }
+    </p>
+    <p>Delete: api/todos/{id}</p>
+  </body>
+</html>
