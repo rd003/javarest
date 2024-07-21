@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.ravindra.javarest.models.Todo;
 
+
 @Repository
-public class TodoRepository {
+public class TodoRepository implements ITodoRepository {
     private final List<Todo> todos = new ArrayList<>();
     private final AtomicLong counter = new AtomicLong(0);
 
@@ -18,16 +19,12 @@ public class TodoRepository {
     }
 
     public Todo findById(long id) {
-        for (Todo todo : todos) {
-            if (todo.getId() == id) {
-                return todo;
-            }
-        }
-        return null;
+        return todos.stream().filter(todo -> todo.getId() == id).findFirst().orElse(null);
     }
 
     public Todo add(Todo todo) {
         todo.setId(counter.incrementAndGet());
+        todo.setCompleted(false);
         todos.add(todo);
         return todo;
     }
