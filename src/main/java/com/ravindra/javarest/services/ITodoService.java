@@ -1,10 +1,10 @@
-package com.ravindra.javarest.repositories;
+package com.ravindra.javarest.services;
 
 import java.util.List;
 
 import com.ravindra.javarest.models.Todo;
 
-public interface ITodoRepository {
+public interface ITodoService {
     List<Todo> findAll();
 
     Todo findById(long id);
